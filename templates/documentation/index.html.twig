@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação da API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            color: #495057;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1 {
+            font-size: 36px;
+            color: #007bff;
+            font-weight: bold;
+        }
+        h2, h4 {
+            color: #343a40;
+        }
+        .card-body {
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .card {
+            margin-top: 20px;
+        }
+        pre {
+            background-color: #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            font-size: 14px;
+            color: #343a40;
+        }
+        .card-title {
+            font-weight: bold;
+        }
+        .section-header {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Documentação da API</h1>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="card-title section-header">Introdução</h2>
+                <p>Bem-vindo à documentação da nossa API! Abaixo você encontrará detalhes sobre como interagir com os
+                    endpoints disponíveis.</p>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="card-title section-header">Endpoints</h2>
+
+                <!-- Endpoints de Login -->
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4><span class="text-success">POST</span> /api/login</h4>
+                        <p><strong>Descrição:</strong> Este endpoint recebe as credenciais do usuário e retorna um token
+                            JWT.</p>
+                        <p><strong>Request Body:</strong></p>
+                        <pre>
+{
+    "email": "usuario@example.com",
+    "senha": "senha123"
+}
+                        </pre>
+                        <p><strong>Response:</strong></p>
+                        <pre>
+{
+    "token": "jwt-token-gerado-aqui"
+}
+                        </pre>
+                    </div>
+                </div>
+
+                <!-- Endpoints de Empresas -->
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4><span class="text-success">POST</span> /api/empresa/create</h4>
+                        <p><strong>Descrição:</strong> Este endpoint realiza o cadastro de uma empresa.</p>
+                        <p><strong>Body:</strong></p>
+                        <pre>
+[{
+    "nome": "Lucas Duarte",
+    "cpf": "28735795018",
+    "empresa_id": "1"
+}]
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4><span class="text-primary">GET</span> /api/empresas</h4>
+                        <p><strong>Descrição:</strong> Este endpoint retorna a lista de empresas cadastradas.</p>
+                        <p><strong>Resposta:</strong></p>
+                        <pre>
+[{
+    "id": 1,
+    "nome": "lucas Tecnologia",
+    "cnpj": "04405765000243"
+}]
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4><span class="text-primary">GET</span> /api/empresa/{id}</h4>
+                        <p><strong>Descrição:</strong> Este endpoint busca a empresa pelo seu id.</p>
+                        <p><strong>Resposta:</strong></p>
+                        <pre>
+{
+    "id": 1,
+    "nome": "lucas Tecnologia",
+    "cnpj": "04405765000243"
+}
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4><span class="text-warning">PUT</span> /api/empresa/{id}</h4>
+                        <p><strong>Descrição:</strong> Este endpoint atualiza os dados de uma empresa pelo seu id.</p>
+                        <p><strong>Resposta:</strong></p>
+                        <pre>
+{
+    "message": "Empresa atualizada com sucesso"
+}
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4><span class="text-danger">DELETE</span> /api/empresa/{id}</h4>
+                        <p><strong>Descrição:</strong> Este endpoint deleta uma empresa pelo seu id.</p>
+                        <p><strong>Resposta:</strong></p>
+                        <pre>
+{
+    "message": "Empresa excluída com sucesso"
+}
+                        </pre>
+                    </div>
+                </div>
+
+                <!-- Endpoints de Socios -->
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4><span class="text-success">POST</span> /api/socio/create</h4>
+                        <p><strong>Descrição:</strong> Este endpoint realiza o cadastro de um sócio.</p>
+                        <p><strong>Body:</strong></p>
+                        <pre>
+{
+    "nome": "Lucas Duarte",
+    "cpf": "28735795018",
+    "empresa_id": "1"
+}
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4><span class="text-primary">GET</span> /api/socios</h4>
+                        <p><strong>Descrição:</strong> Este endpoint retorna a lista de sócios cadastrados.</p>
+                        <p><strong>Resposta:</strong></p>
+                        <pre>
+[{
+    "id": 1,
+    "nome": "Lucas",
+    "cpf": "28735795018",
+    "empresa": {
+        "id": 1,
+        "nome": "lucas Tecnologia",
+        "cnpj": "04405765000243"
+    }
+}]
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4><span class="text-primary">GET</span> /api/socio/{id}</h4>
+                        <p><strong>Descrição:</strong> Este endpoint busca o sócio pelo seu id.</p>
+                        <p><strong>Resposta:</strong></p>
+                        <pre>
+{
+    "id": 1,
+    "nome": "Lucas Duarte",
+    "cpf": "28735795018",
+    "empresa": {
+        "id": 1,
+        "nome": "lucas Tecnologia",
+        "cnpj": "04405765000243"
+    }
+}
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4><span class="text-warning">PUT</span> /api/socio/{id}</h4>
+                        <p><strong>Descrição:</strong> Este endpoint atualiza os dados de um sócio pelo seu id.</p>
+                        <p><strong>Body:</strong></p>
+                        <pre>
+{
+    "nome": "Lucas Duarte",
+    "cpf": "28735795018",
+    "empresa_id": "7"
+}
+                        </pre>
+                        <p><strong>Resposta:</strong></p>
+                        <pre>
+{
+    "message": "Sócio atualizado com sucesso"
+}
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4> <span class="text-danger">DELETE</span> /api/socio/{id}</h4>
+                        <p><strong>Descrição:</strong> Este endpoint deleta um sócio pelo seu id.</p>
+                        <p><strong>Resposta:</strong></p>
+                        <pre>
+{
+    "message": "Sócio excluído com sucesso"
+}
+                        </pre>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
